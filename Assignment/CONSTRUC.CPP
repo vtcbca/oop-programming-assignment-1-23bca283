@@ -14,8 +14,8 @@ class employee
 		employee(int id,char name[20],char dept[20],float sal)
 		{
 			eid=id;
-			ename=name;
-			department=dept;
+			strcpy(ename,name);
+			strcpy(department,dept);
 			salary=sal;
 		}
 		//method to display employee data
@@ -34,6 +34,7 @@ class employee
 };
 int main()
 {
+	int bool;
 	//array to store 5 employee object
 	clrscr();
 	employee employee[5]={
@@ -53,18 +54,18 @@ int main()
 	}
 	//searching an employee by name
 	char searchname;
-	bool found="false";
+	 int found=0;
 	for(j=0;j<5;j++)
 	{
 		if(strcmp(employee[j].getname(),searchname)==0)
 		{
 			cout<<"\n employee found:"<<endl;
 			employee[j].display();
-			found="true";
+			found=1;
 			break;
 		}
 	}
-	if(!found)
+	if(found==0)
 	{
 		cout<<"\n employee not found"<<endl;
 	}
